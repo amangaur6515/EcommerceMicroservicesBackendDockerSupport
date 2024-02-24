@@ -1,0 +1,33 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/cart/getusercart/{email}",
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.CARTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/cart/getusercart/{email}",
+      "UpstreamHttpMethod": [ "GET" ],
+
+     
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/cart/addtocart",
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.CARTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/cart/addtocart",
+      "UpstreamHttpMethod": [ "POST" ],
+
+      
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    }
+  ]
+}

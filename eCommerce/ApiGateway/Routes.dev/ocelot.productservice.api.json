@@ -1,0 +1,113 @@
+{
+  "Routes": [
+    
+    {
+      "DownstreamPathTemplate": "/api/admin/addproduct",
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/admin/addproduct",
+      "UpstreamHttpMethod": [ "POST" ],
+
+      
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/admin/getproducts",
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/admin/getproducts",
+      "UpstreamHttpMethod": [ "GET" ],
+
+     
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/admin/removeproduct/{id}",
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/admin/removeproduct/{id}",
+      "UpstreamHttpMethod": [ "POST" ],
+
+    
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/admin/updateproduct/{id}",
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/admin/updateproduct/{id}",
+      "UpstreamHttpMethod": [ "POST" ],
+
+      
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+   
+    {
+      "DownstreamPathTemplate": "/api/customer/getallproducts",
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/customer/getallproducts",
+      "UpstreamHttpMethod": [ "GET" ],
+
+     
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/customer/getproductdetail/{id}",
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/customer/getproductdetail/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+
+  
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    
+    {
+      "DownstreamPathTemplate": "/api/customer/getstock/{id}",
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTSERVICEAPI",
+      "UpstreamPathTemplate": "/gateway/customer/getstock/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+
+     
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    }
+
+
+  ]
+}

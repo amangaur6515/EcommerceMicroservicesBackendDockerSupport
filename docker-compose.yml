@@ -1,0 +1,79 @@
+version: "3.4"
+
+networks:
+  ecommerce:
+
+services:
+  eureka-service:
+    image: steeltoeoss/eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      ecommerce:
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      ecommerce:
+
+  apigateway:
+    image: amangaur6515/ecommerce:api-gateway5
+    ports:
+      - "7085:80"
+
+    depends_on:
+      - eureka-service
+
+    networks:
+      ecommerce:
+
+  authentication-service:
+    image: amangaur6515/ecommerce:authentication-service1
+    ports:
+      - "7190:80"
+      - "7443:443"
+
+    depends_on:
+      - eureka-service
+      - rabbitmq
+    networks:
+      ecommerce:
+
+  product-service:
+    image: amangaur6515/ecommerce:product-service2
+    ports:
+      - "7196:80"
+      - "7143:443"
+
+    depends_on:
+      - eureka-service
+      - rabbitmq
+    networks:
+      ecommerce:
+
+  product-detail-service:
+    image: amangaur6515/ecommerce:product-detail-service1
+    ports:
+      - "7160:80"
+      - "7126:443"
+
+    depends_on:
+      - eureka-service
+      - rabbitmq
+    networks:
+      ecommerce:
+
+  cart-service:
+    image: amangaur6515/ecommerce:cart-service1
+    ports:
+      - "7174:80"
+      - "7243:443"
+
+    depends_on:
+      - eureka-service
+      - rabbitmq
+    networks:
+      ecommerce:

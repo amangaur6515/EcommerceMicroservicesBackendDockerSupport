@@ -1,0 +1,33 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/productdetail/getallproductdetail",
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTDETAILAPI",
+      "UpstreamPathTemplate": "/gateway/productdetail/getallproductdetail",
+      "UpstreamHttpMethod": [ "GET" ],
+
+      
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/productdetail/getproductdetail/{id}",
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.PRODUCTDETAILAPI",
+      "UpstreamPathTemplate": "/gateway/productdetail/getproductdetail/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+
+      
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "GlobalConfiguration": {
+    "RequestIdKey": "OcRequestId",
+    "DownstreamScheme": "http",
+    "UseServiceDiscovery": true,
+    "ServiceDiscoveryProvider": {
+      "Host": "http://eureka-service:8761/eureka/",
+      
+      
+      "Type": "Eureka"
+    }
+  }
+}

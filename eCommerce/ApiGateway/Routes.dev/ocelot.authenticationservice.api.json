@@ -1,0 +1,33 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/authentication/register",
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.AUTHENTICATIONAPI",
+      "UpstreamPathTemplate": "/gateway/authentication/register",
+      "UpstreamHttpMethod": [ "POST" ],
+
+      
+
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/authentication/login",
+      "DownstreamScheme": "http",
+      "UseServiceDiscovery": true,
+      "ServiceName": "SERVICE.AUTHENTICATIONAPI",
+      "UpstreamPathTemplate": "/gateway/authentication/login",
+      "UpstreamHttpMethod": [ "POST" ],
+
+      
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+
+    }
+  ]
+}
